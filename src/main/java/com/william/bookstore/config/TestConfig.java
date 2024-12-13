@@ -16,7 +16,8 @@ public class TestConfig {
     }
 
     @Bean
-    public int instaciaBaseDeDados() {
-        return this.dbServise.instanciaBaseDeDados();
+    public boolean instaciaBaseDeDados() {
+        this.dbServise.instanciaBaseDeDados();
+        return true;
     }
 }
