@@ -1,6 +1,7 @@
 package com.william.bookstore.service;
 
 import com.william.bookstore.domain.Categoria;
+import com.william.bookstore.dtos.CategoriaDTO;
 import com.william.bookstore.exceptions.ObjectNotFoundException;
 import com.william.bookstore.repositories.CategoriaRepository;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,12 @@ public class CategoriaService {
     public Categoria create(Categoria categoria) {
         categoria.setId(null);
         return repository.save(categoria);
+    }
+
+    public Categoria update(Integer id, CategoriaDTO objDto) {
+        Categoria obj = findById(id);
+        obj.setNome(objDto.getNome());
+        obj.setDescricao(objDto.getDescricao());
+        return repository.save(obj);
     }
 }
