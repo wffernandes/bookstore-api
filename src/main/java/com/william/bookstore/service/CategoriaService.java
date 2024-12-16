@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class CategoriaService {
 
-    private CategoriaRepository repository;
+    private final CategoriaRepository repository;
 
     public CategoriaService(CategoriaRepository categoriaRepository) {
         this.repository = categoriaRepository;
