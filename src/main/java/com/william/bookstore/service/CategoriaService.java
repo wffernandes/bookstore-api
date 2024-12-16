@@ -5,6 +5,7 @@ import com.william.bookstore.exceptions.ObjectNotFoundException;
 import com.william.bookstore.repositories.CategoriaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,5 +20,9 @@ public class CategoriaService {
     public Categoria findById(Integer id) {
         Optional<Categoria> categoria = repository.findById(id);
         return categoria.orElseThrow(() -> new ObjectNotFoundException("Objeto não foi encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+    }
+
+    public List<Categoria> findAll() {
+        return repository.findAll();
     }
 }
