@@ -1,5 +1,6 @@
 package com.william.bookstore.service;
 
+import com.william.bookstore.domain.Categoria;
 import com.william.bookstore.domain.Livro;
 import com.william.bookstore.exceptions.ObjectNotFoundException;
 import com.william.bookstore.repositories.LivroRepository;
@@ -39,5 +40,12 @@ public class LivroService {
         newObj.setTitulo(obj.getTitulo());
         newObj.setNome_autor(obj.getNome_autor());
         newObj.setTexto(obj.getTexto());
+    }
+
+    public Livro create(Integer id_cat, Livro obj) {
+        obj.setId(null);
+        Categoria cat = categoriaService.findById(id_cat);
+        obj.setCategoria(cat);
+        return repository.save(obj);
     }
 }
